@@ -159,7 +159,8 @@ class RoadMap:
         self.__fill_graph()
         self.__network.widget = True
 
-        st.markdown(self.__network.show(name=(theme + '.html'), notebook=True))
+        st.components.v1.html(self.__network.show(name=(theme + '.html'), notebook=False), height=600)
+
 
 
 with open("ROADMAP.gif", "rb") as file_:
@@ -280,15 +281,13 @@ def check(text: str):
 col1, col2, col3 = st.columns(3)
 
 
-
-
 with col2:
     if st.button("GENERATE ROADMAP🧠", key="generate_button"):
         with st.spinner("Loading, please wait."):
             if check(theme):
                 RAW_TEXT = PROMPT_TEMPL + theme + ' [/INST]'
                 rd = RoadMap()
-                rd.get_title("theme")
+                rd.get_title(theme)
                 rd.fit_text(generate(RAW_TEXT))
 
                 rd.show()
