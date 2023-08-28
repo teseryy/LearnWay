@@ -162,11 +162,10 @@ class RoadMap:
 
         #webbrowser.open_new_tab(self.__network.generate_html(name=theme+'.html', notebook=False))
         html_content = self.__network.generate_html(name=theme + '.html', notebook=False)
-        with open(theme + '.html', 'w') as f:
-            f.write(html_content)
 
-        # Откройте файл в отдельном окне браузера
-        webbrowser.open_new_tab(theme + '.html')
+        # Создаем кнопку, которая открывает модальное окно
+        if st.button("Open HTML"):
+            st.write(html_content, unsafe_allow_html=True)
 
 
 with open("ROADMAP.gif", "rb") as file_:
