@@ -159,7 +159,9 @@ class RoadMap:
         self.__fill_graph()
         self.__network.widget = True
 
-        st.components.v1.html(self.__network.show(name=(theme + '.html'), notebook=False).read(), height=600)
+        ht = self.__network.save_graph(theme + '.html')
+
+        st.components.v1.html(ht.read(), height=600)
 
 
 
