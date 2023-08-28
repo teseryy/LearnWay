@@ -160,8 +160,13 @@ class RoadMap:
         self.__fill_graph()
         self.__network.widget = True
 
-        webbrowser.open_new_tab(self.__network.generate_html(name=theme+'.html', local=True, notebook=False))
+        #webbrowser.open_new_tab(self.__network.generate_html(name=theme+'.html', notebook=False))
+        html_content = self.__network.generate_html(name=theme + '.html', notebook=False)
+        with open(theme + '.html', 'w') as f:
+            f.write(html_content)
 
+        # Откройте файл в отдельном окне браузера
+        webbrowser.open_new_tab(theme + '.html')
 
 
 with open("ROADMAP.gif", "rb") as file_:
