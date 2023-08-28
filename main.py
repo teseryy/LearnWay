@@ -158,7 +158,8 @@ class RoadMap:
     def show(self):
         self.__fill_graph()
         self.__network.widget = True
-        self.__network.show(name=(self.__name + '.html'), notebook=False)
+
+        st.write(self.__network.show(name=(theme + '.html'), notebook=False))
 
 
 with open("ROADMAP.gif", "rb") as file_:
@@ -277,6 +278,9 @@ def check(text: str):
     return False
 
 col1, col2, col3 = st.columns(3)
+
+
+
 
 with col2:
     if st.button("GENERATE ROADMAP🧠", key="generate_button"):
