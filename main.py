@@ -159,7 +159,7 @@ class RoadMap:
         self.__fill_graph()
         self.__network.widget = True
 
-        st.write(self.__network.show(name=(theme + '.html'), notebook=False))
+        st.markdown(self.__network.show(name=(theme + '.html'), notebook=True))
 
 
 with open("ROADMAP.gif", "rb") as file_:
